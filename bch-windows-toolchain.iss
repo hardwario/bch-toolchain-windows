@@ -73,7 +73,7 @@ Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environmen
 
 Root: HKCU; Subkey: "SOFTWARE\Classes\directory\shell\BigClown"; ValueType: expandsz; ValueName: ""; ValueData: "Open with BC Toolchain"; Flags: uninsdeletekey
 Root: HKCU; Subkey: "SOFTWARE\Classes\directory\shell\BigClown"; ValueType: expandsz; ValueName: "Icon"; ValueData: "{app}\BigClown.ico"; 
-Root: HKCU; Subkey: "SOFTWARE\Classes\directory\shell\BigClown\command"; ValueType: expandsz; ValueName: ""; ValueData: "{app}\cmd\sh.cmd" 
+Root: HKCU; Subkey: "SOFTWARE\Classes\directory\shell\BigClown\command"; ValueType: expandsz; ValueName: ""; ValueData: """{app}\cmd\sh.cmd"""
 
 [Icons]
 Name: "{commonprograms}\{#MyAppName}"; Filename: "{app}\cmd\sh.cmd"; IconFilename: "{app}\BigClown.ico"; WorkingDir: "{%USERPROFILE}"
