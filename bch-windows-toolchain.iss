@@ -1,5 +1,5 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.0.0-prerelease.1"
+#define MyAppVersion "1.0.0-prerelease.2"
 
 [Setup]
 PrivilegesRequired=admin
