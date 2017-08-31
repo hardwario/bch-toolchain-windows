@@ -1,0 +1,1 @@
+"%BigClown%\bcf\bcf.exe" %*
