@@ -12,7 +12,7 @@ Adds `%BigClown%\\cmd` at the end of `%Path%` on HKLM level (if you like use dif
     * `sh.cmd` - starts BusyBox shell, adds GCC binaries in `$BIGCLOWN/bin` at the beginning of `$PATH`. That allows to use other version of GNU ARM Embedded Toolchain if needed. Just copy sh.cmd, modify GCC path and use modified script to start toolchain.
     * `git.exe` - Git executable
     * `make.exe` - GNU Make executable
-    * `rm.cmd`, `cp.cmd` - Makefile dependencies served by BusyBox
+    * `echo.exe`, `mkdir.cmd`, `rm.exe` - Makefile dependencies served by BusyBox
     * `bcf.cmd` - script calling BigClown Firmware Flasher (implemented in Python and packed by PyInstaller)
     * `dfu-util.exe` - USB DFU flasher
   * Installation or check purposes
@@ -46,7 +46,8 @@ make
     * mingw32\\*
     * usr\\*
   * [GNU MCU Eclipse Windows Build Tools v2.9-20170629-1013](https://github.com/gnu-mcu-eclipse/windows-build-tools/)
-    * make.exe - GNU Make
+    * `make.exe` - GNU Make
+    * Makefile dependencies - `echo.exe`, `mkdir.exe`, `rm.exe`
   * [dfu-util-static v0.8](https://sourceforge.net/projects/dfu-util/files/dfu-util-0.8-binaries/win32-mingw32/)
   * [libwdi v1.2.5](https://github.com/pbatard/libwdi) WinUSB drivers for STM32 DFU
   * [Zadig v2.3](http://zadig.akeo.ie/) USB driver check&fix for STM32 DFU

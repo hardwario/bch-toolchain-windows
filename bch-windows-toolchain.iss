@@ -14,7 +14,7 @@ AppUpdatesURL="https://github.com/bigclownlabs/bch-windows-toolchain"
 DefaultDirName={pf}\BigClown
 DisableDirPage=yes
 DisableProgramGroupPage=yes
-OutputBaseFilename=bigclown-toolchain-setup-{#MyAppVersion}
+OutputBaseFilename=BigClown-toolchain-setup-{#MyAppVersion}
 Compression=lzma
 SolidCompression=yes
 UninstallDisplayIcon={app}\BigClown.ico
@@ -34,8 +34,10 @@ Source: "config\.gitconfig"; DestDir: "{%USERPROFILE}"; Flags: ignoreversion onl
 ; Busybox shell
 Source: "script\sh.cmd"; DestDir: "{app}\cmd"; Flags: ignoreversion
 ; Makefile dependencies
-Source: "script\rm.cmd"; DestDir: "{app}\cmd"; Flags: ignoreversion
-Source: "script\cp.cmd"; DestDir: "{app}\cmd"; Flags: ignoreversion
+Source: "GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\echo.exe"; DestDir: "{app}\cmd"; Flags: ignoreversion
+Source: "GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\mkdir.exe"; DestDir: "{app}\cmd"; Flags: ignoreversion
+Source: "GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\rm.exe"; DestDir: "{app}\cmd"; Flags: ignoreversion
+
 ; GNU make
 Source: "GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\make.exe"; DestDir: "{app}\cmd"; Flags: ignoreversion
 
