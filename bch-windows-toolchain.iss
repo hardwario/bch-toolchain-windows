@@ -33,6 +33,9 @@ Source: "LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "config\.gitconfig"; DestDir: "{%USERPROFILE}"; Flags: ignoreversion onlyifdoesntexist uninsneveruninstall
 ; Busybox shell
 Source: "script\sh.cmd"; DestDir: "{app}\cmd"; Flags: ignoreversion
+; Makefile dependencies
+Source: "script\rm.cmd"; DestDir: "{app}\cmd"; Flags: ignoreversion
+Source: "script\cp.cmd"; DestDir: "{app}\cmd"; Flags: ignoreversion
 ; GNU make
 Source: "GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\make.exe"; DestDir: "{app}\cmd"; Flags: ignoreversion
 
