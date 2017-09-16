@@ -1,4 +1,10 @@
-* Replace Makefile dependencies cmd shell versions with exe binary versions - echo, mkdir, rm
+## [v1.0.0-prerelease.3](https://github.com/bigclownlabs/bch-windows-toolchain/tree/v1.0.0-prerelease.3) (2017-09-16)
+
+* Should be fully functinal
+* Change to cmd shell
+* Split installation to subdirectories
+* Update documentation
+* Replace Makefile dependency sh with exe binary version `sh.exe`
 
 ## [v1.0.0-prerelease.2](https://github.com/bigclownlabs/bch-windows-toolchain/tree/v1.0.0-prerelease.2) (2017-09-14)
 
