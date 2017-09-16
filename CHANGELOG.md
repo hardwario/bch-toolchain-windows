@@ -1,3 +1,5 @@
+* Fix documentation slashes
+
 ## [v1.0.0-prerelease.3](https://github.com/bigclownlabs/bch-windows-toolchain/tree/v1.0.0-prerelease.3) (2017-09-16)
 
 * Should be fully functinal
