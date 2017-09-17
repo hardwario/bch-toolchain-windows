@@ -1,3 +1,8 @@
+## [v1.0.0](https://github.com/bigclownlabs/bch-windows-toolchain/tree/v1.0.0) (2017-09-xx)
+
+* Change BigClown folder to BigClown Toolbox
+* Change gnu folder to gcc
+* Add title for cmd window
 * Fix documentation slashes
 
 ## [v1.0.0-prerelease.3](https://github.com/bigclownlabs/bch-windows-toolchain/tree/v1.0.0-prerelease.3) (2017-09-16)

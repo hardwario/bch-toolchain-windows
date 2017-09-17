@@ -16,8 +16,8 @@ Scripts/binaries for toolchain executables:
     * `bct\bct.cmd` - adds Git, GCC, DFU paths at the beginning of `%Path%`. You can pass directory as first parametr to change to working directory.
     * `bct\bcf.cmd` - script calling BigClown Firmware Flasher (implemented in Python and packed by PyInstaller)
     * `git\cmd\git.exe` - Git executable
-    * `gnu\bin\make.exe` - GNU Make executable
-    * `gnu\bin\sh.exe` - Makefile dependency served by BusyBox
+    * `gcc\bin\make.exe` - GNU Make executable
+    * `gcc\bin\sh.exe` - Makefile dependency served by BusyBox
     * `dfu\dfu-util.exe` - USB DFU flasher
   * Installation or check purposes
     * `dfu\dfu-driver-install.cmd` - installs USB DFU drivers. Has to be used before connecting STM32 MCU in DFU mode to PC (BigClown Firmware Windows Toolchain has to be installed before connecting STM32 MCU in DFU mode). Uses zadic.exe
@@ -42,12 +42,12 @@ make dfu
 ## Components 
 32bit versions, drivers 32bit & 64bit:
   * [GNU ARM Embedded Toolchain 6-2017-q2-update](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
-    * `gnu\*`
+    * `gcc\*`
   * [Git for Windows MinGit-busybox 2.14.1](https://github.com/git-for-windows/git/) includes BusyBox v1.28.0.git
     * `git\*`
   * [GNU MCU Eclipse Windows Build Tools v2.9-20170629-1013](https://github.com/gnu-mcu-eclipse/windows-build-tools/)
-    * `gnu\bin\make.exe` - GNU Make
-    * `gnu\bin\sh.exe` - Makefile dependency
+    * `gcc\bin\make.exe` - GNU Make
+    * `gcc\bin\sh.exe` - Makefile dependency
   * [dfu-util-static v0.8](https://sourceforge.net/projects/dfu-util/files/dfu-util-0.8-binaries/win32-mingw32/)
   * [libwdi v1.2.5](https://github.com/pbatard/libwdi) WinUSB drivers for STM32 DFU
   * [Zadig v2.3](http://zadig.akeo.ie/) USB driver check&fix for STM32 DFU

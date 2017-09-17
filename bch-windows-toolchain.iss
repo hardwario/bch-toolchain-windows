@@ -1,18 +1,18 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.0.0-prerelease.3"
+#define MyAppVersion "1.0.0"
 
 [Setup]
 PrivilegesRequired=admin
 AppId={{61A8E34F-456F-4713-942B-E05CB737DA4F}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
-;AppVerName={#MyAppName} {#MyAppVersion}
+AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher="HARDWARIO s.r.o."
 AppPublisherURL="https://www.hardwario.com/"
 AppSupportURL="https://www.bigclown.com/contact/"
 AppUpdatesURL="https://github.com/bigclownlabs/bch-windows-toolchain"
 UsePreviousAppDir=yes
-DefaultDirName={pf}\BigClown
+DefaultDirName={pf}\BigClown Toolchain
 DisableDirPage=no
 DisableProgramGroupPage=yes
 OutputBaseFilename=BigClown-toolchain-setup-{#MyAppVersion}
@@ -33,7 +33,7 @@ Name: "addpath"; Description: "Add BigClown Toolchain into Path"; Flags: checked
 Source: "BigClown.ico"; DestDir: "{app}"; Flags: ignoreversion
 ; Keep LF in source code, DO NOT translate to CRLF!
 Source: "config\.gitconfig"; DestDir: "{%USERPROFILE}"; Flags: ignoreversion onlyifdoesntexist uninsneveruninstall
-; Busybox shell
+; Add BigClown Toolbox paths into Path
 Source: "script\bct.cmd"; DestDir: "{app}\bct"; Flags: ignoreversion
 
 ; GNU make
@@ -70,11 +70,11 @@ Source: "mingw32\*"; DestDir: "{app}\git\mingw32"; Flags: ignoreversion recurses
 Source: "usr\*"; DestDir: "{app}\git\usr"; Flags: ignoreversion recursesubdirs
 ; GNU ARM Embedded Toolchain
 ; LICENSE.txt from GNU GNU ARM Embedded Toolchain
-Source: "LICENSE.txt"; DestDir: "{app}\gnu"; Flags: ignoreversion
-Source: "arm-none-eabi\*"; DestDir: "{app}\gnu\arm-none-eabi"; Flags: ignoreversion recursesubdirs
-Source: "bin\*"; DestDir: "{app}\gnu\bin"; Flags: ignoreversion recursesubdirs
-Source: "lib\*"; DestDir: "{app}\gnu\lib"; Flags: ignoreversion recursesubdirs
-Source: "share\*"; DestDir: "{app}\gnu\share"; Flags: ignoreversion recursesubdirs
+Source: "LICENSE.txt"; DestDir: "{app}\gcc"; Flags: ignoreversion
+Source: "arm-none-eabi\*"; DestDir: "{app}\gcc\arm-none-eabi"; Flags: ignoreversion recursesubdirs
+Source: "bin\*"; DestDir: "{app}\gcc\bin"; Flags: ignoreversion recursesubdirs
+Source: "lib\*"; DestDir: "{app}\gcc\lib"; Flags: ignoreversion recursesubdirs
+Source: "share\*"; DestDir: "{app}\gcc\share"; Flags: ignoreversion recursesubdirs
 
 [Registry]
 ; add BigClown Toolchain to Path
@@ -126,5 +126,5 @@ Filename: "{app}\dfu\dfu-driver-install.cmd"; \
     Flags: runhidden
 ; Install STM32 Virtual COM Port Driver
 Filename: "msiexec.exe"; \
-    Parameters: "/i ""{tmp}\Virtual COM Port Driver V1.4.0.msi"" /passive /norestart"; \
+    Parameters: "/i ""{tmp}\Virtual Com Port Driver V1.4.0.msi"" /passive /norestart"; \
     StatusMsg: "Installing STM32 Virtual Com port driver";
