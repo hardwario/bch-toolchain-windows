@@ -8,7 +8,7 @@ AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher="HARDWARIO s.r.o."
-AppPublisherURL="https://www.hardwar.io/"
+AppPublisherURL="https://www.hardwario.com/"
 AppSupportURL="https://www.bigclown.com/contact/"
 AppUpdatesURL="https://github.com/bigclownlabs/bch-windows-toolchain"
 UsePreviousAppDir=yes
@@ -25,10 +25,8 @@ ChangesAssociations=true
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
-
 [Tasks]
 Name: "addpath"; Description: "Add BigClown Toolchain into Path"; Flags: checkedonce
-
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 [Files]
@@ -46,7 +44,7 @@ Source: "GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\sh.exe"; DestDir: "{a
 ;Source: "GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\mkdir.exe"; DestDir: "{app}\gnu\bin"; Flags: ignoreversion
 ;Source: "GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\rm.exe"; DestDir: "{app}\gnu\bin"; Flags: ignoreversion
 
-; bcf
+; BigClown Firmware Utility
 Source: "dist\bcf\*"; DestDir: "{app}\bcf"; Flags: ignoreversion
 Source: "script\bcf.cmd"; DestDir: "{app}\bct"; Flags: ignoreversion
 
@@ -97,7 +95,6 @@ Root: HKCU; Subkey: "SOFTWARE\Classes\directory\background\shell\BigClown"; Valu
 Root: HKCU; Subkey: "SOFTWARE\Classes\directory\background\shell\BigClown\command"; ValueType: expandsz; ValueName: ""; \
     ValueData: """{win}\system32\cmd.exe"" /K """"{app}\bct\bct.cmd"" ""%V"""""
 
-
 [Icons]
 Name: "{commonprograms}\{#MyAppName}"; Filename: "{win}\system32\cmd.exe"; IconFilename: "{app}\BigClown.ico"; \
     Parameters: "/K ""{app}\bct\bct.cmd"""; WorkingDir: "{%USERPROFILE}"
@@ -127,7 +124,7 @@ end;
 Filename: "{app}\dfu\dfu-driver-install.cmd"; \
     StatusMsg: "Installing DFU Driver"; \
     Flags: runhidden
-; Install STM32 Virtual Com port driver
+; Install STM32 Virtual COM Port Driver
 Filename: "msiexec.exe"; \
-    Parameters: "/i ""{tmp}\Virtual Com port driver V1.4.0.msi"" /passive /norestart"; \
+    Parameters: "/i ""{tmp}\Virtual COM Port Driver V1.4.0.msi"" /passive /norestart"; \
     StatusMsg: "Installing STM32 Virtual Com port driver";
