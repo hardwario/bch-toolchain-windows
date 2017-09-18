@@ -1,5 +1,5 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "v1.0.0"
 
 [Setup]
 PrivilegesRequired=admin
@@ -15,7 +15,7 @@ UsePreviousAppDir=yes
 DefaultDirName={pf}\BigClown Toolchain
 DisableDirPage=no
 DisableProgramGroupPage=yes
-OutputBaseFilename=BigClown-toolchain-setup-{#MyAppVersion}
+OutputBaseFilename=BigClown-Toolchain-Setup-{#MyAppVersion}
 Compression=lzma
 SolidCompression=yes
 UninstallDisplayIcon={app}\BigClown.ico
