@@ -1,9 +1,14 @@
-## [v1.0.0](https://github.com/bigclownlabs/bch-windows-toolchain/tree/v1.0.0) (2017-09-xx)
+## [v1.0.0-rc4](https://github.com/bigclownlabs/bch-windows-toolchain/tree/v1.0.0-rc4) (2017-10-05)
 
+* Upgrade bcf v0.2.2
+* Add tasks to add functionality components into Path
+* Upgrade Git for Windows MinGit-busybox 2.14.2
 * Change BigClown folder to BigClown Toolbox
 * Change gnu folder to gcc
 * Add title for cmd window
 * Fix documentation slashes
+* Move GNU Make from gcc subdirectory to make subdirectory
+* Add uninstall paths from Path enviroment variable
 
 ## [v1.0.0-prerelease.3](https://github.com/bigclownlabs/bch-windows-toolchain/tree/v1.0.0-prerelease.3) (2017-09-16)
 

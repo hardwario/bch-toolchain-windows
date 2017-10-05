@@ -1,5 +1,5 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.0-rc4"
 
 [Setup]
 PrivilegesRequired=admin
@@ -15,7 +15,7 @@ UsePreviousAppDir=yes
 DefaultDirName={pf}\BigClown Toolchain
 DisableDirPage=no
 DisableProgramGroupPage=yes
-OutputBaseFilename=BigClown-toolchain-setup-{#MyAppVersion}
+OutputBaseFilename=bch-windows-toolchain-setup-v{#MyAppVersion}
 Compression=lzma
 SolidCompression=yes
 UninstallDisplayIcon={app}\BigClown.ico
@@ -26,27 +26,34 @@ ChangesAssociations=true
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
-Name: "addpath"; Description: "Add BigClown Toolchain into Path"; Flags: checkedonce
+Name: "add_script"; Description: "Add BigClown Toolchain scripts bct and bcf into Path";
+Name: "add_git"; Description: "Add Git and SSH (from Git) into Path"; Flags: unchecked
+Name: "add_gcc"; Description: "Add GCC (GNU Arm Embedded Toolchain) into Path"; Flags: unchecked
+Name: "add_make"; Description: "Add Make into Path"; Flags: unchecked
+Name: "add_dfu"; Description: "Add DFU utils into Path"; Flags: unchecked
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 [Files]
 Source: "BigClown.ico"; DestDir: "{app}"; Flags: ignoreversion
 ; Keep LF in source code, DO NOT translate to CRLF!
 Source: "config\.gitconfig"; DestDir: "{%USERPROFILE}"; Flags: ignoreversion onlyifdoesntexist uninsneveruninstall
-; Add BigClown Toolbox paths into Path
-Source: "script\bct.cmd"; DestDir: "{app}\bct"; Flags: ignoreversion
+Source: "README.md"; DestDir: "{app}"; Flags: ignoreversion
+Source: "CHANGELOG.md"; DestDir: "{app}"; Flags: ignoreversion
 
-; GNU make
-Source: "GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\make.exe"; DestDir: "{app}\gnu\bin"; Flags: ignoreversion
-; Makefile dependencies from Git
-Source: "GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\sh.exe"; DestDir: "{app}\gnu\bin"; Flags: ignoreversion
-;Source: "GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\echo.exe"; DestDir: "{app}\gnu\bin"; Flags: ignoreversion
-;Source: "GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\mkdir.exe"; DestDir: "{app}\gnu\bin"; Flags: ignoreversion
-;Source: "GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\rm.exe"; DestDir: "{app}\gnu\bin"; Flags: ignoreversion
+; Add BigClown Toolbox paths into Path
+Source: "script\bct.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
 
 ; BigClown Firmware Utility
 Source: "dist\bcf\*"; DestDir: "{app}\bcf"; Flags: ignoreversion
-Source: "script\bcf.cmd"; DestDir: "{app}\bct"; Flags: ignoreversion
+Source: "script\bcf.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
+
+; USB UART FTDI Virtual COM Port Drivers
+; http://www.ftdichip.com/Drivers/VCP.htm
+Source: "CDM21228_Setup.exe"; DestDir: "{tmp}";
+
+; USB UART ST Driver
+; http://www.st.com/en/development-tools/stsw-stm32102.html
+Source: "download\Virtual Com port driver V1.4.0.msi"; DestDir: "{tmp}";
 
 ; DFU
 ; http://zadig.akeo.ie/ https://github.com/pbatard/libwdi
@@ -59,64 +66,144 @@ Source: "script\dfu-driver-install.cmd"; DestDir: "{app}\dfu"; Flags: ignorevers
 ; https://sourceforge.net/projects/dfu-util/files/?source=navbar
 Source: "download\dfu-util-static.exe"; DestDir: "{app}\dfu"; DestName: "dfu-util.exe"; Flags: ignoreversion
 
-; USB UART ST Driver
-; http://www.st.com/en/development-tools/stsw-stm32102.html
-Source: "download\Virtual Com port driver V1.4.0.msi"; DestDir: "{tmp}";
-
 ; Git
-Source: "cmd\*"; DestDir: "{app}\git\cmd"; Flags: ignoreversion
-Source: "etc\*"; DestDir: "{app}\git\etc"; Flags: ignoreversion recursesubdirs
-Source: "mingw32\*"; DestDir: "{app}\git\mingw32"; Flags: ignoreversion recursesubdirs
-Source: "usr\*"; DestDir: "{app}\git\usr"; Flags: ignoreversion recursesubdirs
+Source: "git\LICENSE.txt"; DestDir: "{app}\git"; Flags: ignoreversion
+Source: "git\cmd\*"; DestDir: "{app}\git\cmd"; Flags: ignoreversion
+Source: "git\etc\*"; DestDir: "{app}\git\etc"; Flags: ignoreversion recursesubdirs
+Source: "git\mingw32\*"; DestDir: "{app}\git\mingw32"; Flags: ignoreversion recursesubdirs
+Source: "git\usr\*"; DestDir: "{app}\git\usr"; Flags: ignoreversion recursesubdirs
+
+; GNU make
+Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\make.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\license\make-4.1\README.W32"; DestName: "Make_README.W32"; DestDir: "{app}\make"; Flags: ignoreversion
+; Makefile dependencies from Git
+Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\sh.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\echo.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\mkdir.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\rm.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\license\busybox\README.md"; DestName: "BusyBox_README.md"; DestDir: "{app}\make"; Flags: ignoreversion
+
 ; GNU ARM Embedded Toolchain
 ; LICENSE.txt from GNU GNU ARM Embedded Toolchain
-Source: "LICENSE.txt"; DestDir: "{app}\gcc"; Flags: ignoreversion
-Source: "arm-none-eabi\*"; DestDir: "{app}\gcc\arm-none-eabi"; Flags: ignoreversion recursesubdirs
-Source: "bin\*"; DestDir: "{app}\gcc\bin"; Flags: ignoreversion recursesubdirs
-Source: "lib\*"; DestDir: "{app}\gcc\lib"; Flags: ignoreversion recursesubdirs
-Source: "share\*"; DestDir: "{app}\gcc\share"; Flags: ignoreversion recursesubdirs
+Source: "gcc\arm-none-eabi\*"; DestDir: "{app}\gcc\arm-none-eabi"; Flags: ignoreversion recursesubdirs
+Source: "gcc\bin\*"; DestDir: "{app}\gcc\bin"; Flags: ignoreversion recursesubdirs
+Source: "gcc\lib\*"; DestDir: "{app}\gcc\lib"; Flags: ignoreversion recursesubdirs
+Source: "gcc\share\*"; DestDir: "{app}\gcc\share"; Flags: ignoreversion recursesubdirs
 
 [Registry]
-; add BigClown Toolchain to Path
+; Store BigClown Toolchain installation directory into BigClown enviroment variable
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
-    ValueType: expandsz; ValueName: "BigClown"; ValueData: "{app}"; Tasks: addpath
+    ValueType: expandsz; ValueName: "BigClownToolchain"; ValueData: "{app}"; Flags: uninsdeletevalue
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
-    ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}\bct"; \
-    Check: NeedsAddPath('{app}\bct'); Tasks: addpath
+    ValueType: expandsz; ValueName: "BigClownToolchainVersion"; ValueData: "{#MyAppVersion}"; Flags: uninsdeletevalue
+; Add BigClown Toolchain scripts bct and bcf into Path
+Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
+    ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}\script"; \
+    Check: NeedsAddPath('{app}\script'); Tasks: add_script
+; Add Git and SSH into Path
+Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
+    ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}\git\cmd"; \
+    Check: NeedsAddPath('{app}\git\cmd'); Tasks: add_git
+Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
+    ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}\git\usr\bin"; \
+    Check: NeedsAddPath('{app}\git\usr\bin'); Tasks: add_git
+; Add GCC into Path
+Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
+    ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}\gcc\bin"; \
+    Check: NeedsAddPath('{app}\gcc\bin'); Tasks: add_gcc
+; Add Make into Path
+Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
+    ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}\make"; \
+    Check: NeedsAddPath('{app}\make'); Tasks: add_make
+; Add DFU utils into Path
+Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
+    ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}\dfu"; \
+    Check: NeedsAddPath('{app}\gcc\dfu'); Tasks: add_dfu
 
 ; right-click on folder
-Root: HKCU; Subkey: "SOFTWARE\Classes\directory\shell\BigClown"; ValueType: expandsz; ValueName: ""; ValueData: "Open with {#MyAppName}"; Flags: uninsdeletekey
-Root: HKCU; Subkey: "SOFTWARE\Classes\directory\shell\BigClown"; ValueType: expandsz; ValueName: "Icon"; ValueData: "{app}\BigClown.ico"; 
-Root: HKCU; Subkey: "SOFTWARE\Classes\directory\shell\BigClown\command"; ValueType: expandsz; ValueName: ""; \
-    ValueData: """{win}\system32\cmd.exe"" /K """"{app}\bct\bct.cmd"" ""%V"""""
+Root: HKLM; Subkey: "SOFTWARE\Classes\directory\shell\BigClown"; ValueType: expandsz; ValueName: ""; ValueData: "Open with {#MyAppName}"; Flags: uninsdeletekey
+Root: HKLM; Subkey: "SOFTWARE\Classes\directory\shell\BigClown"; ValueType: expandsz; ValueName: "Icon"; ValueData: "{app}\BigClown.ico"; 
+Root: HKLM; Subkey: "SOFTWARE\Classes\directory\shell\BigClown\command"; ValueType: expandsz; ValueName: ""; \
+    ValueData: """{win}\system32\cmd.exe"" /K """"{app}\script\bct.cmd"" ""%V"""""
 ; right-click in folder
-Root: HKCU; Subkey: "SOFTWARE\Classes\directory\background\shell\BigClown"; ValueType: expandsz; ValueName: ""; ValueData: "Open with {#MyAppName}"; Flags: uninsdeletekey
-Root: HKCU; Subkey: "SOFTWARE\Classes\directory\background\shell\BigClown"; ValueType: expandsz; ValueName: "Icon"; ValueData: "{app}\BigClown.ico"
-Root: HKCU; Subkey: "SOFTWARE\Classes\directory\background\shell\BigClown\command"; ValueType: expandsz; ValueName: ""; \
-    ValueData: """{win}\system32\cmd.exe"" /K """"{app}\bct\bct.cmd"" ""%V"""""
+Root: HKLM; Subkey: "SOFTWARE\Classes\directory\background\shell\BigClown"; ValueType: expandsz; ValueName: ""; ValueData: "Open with {#MyAppName}"; Flags: uninsdeletekey
+Root: HKLM; Subkey: "SOFTWARE\Classes\directory\background\shell\BigClown"; ValueType: expandsz; ValueName: "Icon"; ValueData: "{app}\BigClown.ico"
+Root: HKLM; Subkey: "SOFTWARE\Classes\directory\background\shell\BigClown\command"; ValueType: expandsz; ValueName: ""; \
+    ValueData: """{win}\system32\cmd.exe"" /K """"{app}\script\bct.cmd"" ""%V"""""
 
 [Icons]
 Name: "{commonprograms}\{#MyAppName}"; Filename: "{win}\system32\cmd.exe"; IconFilename: "{app}\BigClown.ico"; \
-    Parameters: "/K ""{app}\bct\bct.cmd"""; WorkingDir: "{%USERPROFILE}"
+    Parameters: "/K ""{app}\script\bct.cmd"""; WorkingDir: "{%USERPROFILE}"
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{win}\system32\cmd.exe"; IconFilename: "{app}\BigClown.ico"; \
-    Parameters: "/K ""{app}\bct\bct.cmd"""; WorkingDir: "{%USERPROFILE}"
+    Parameters: "/K ""{app}\script\bct.cmd"""; WorkingDir: "{%USERPROFILE}"
 
 [Code]
+const
+  EnvironmentKey = 'SYSTEM\CurrentControlSet\Control\Session Manager\Environment';
+
+{WARNING works for set of paths who are not substrings to each other}
 function NeedsAddPath(Param: string): boolean;
 var
   OrigPath: string;
 begin
-  if not RegQueryStringValue(HKEY_LOCAL_MACHINE, 
-    'SYSTEM\CurrentControlSet\Control\Session Manager\Environment', 
-    'Path', OrigPath)
+  if not RegQueryStringValue(HKEY_LOCAL_MACHINE, EnvironmentKey, 'Path', OrigPath)
   then begin
     Result := True;
     exit;
   end;
-  { look for the path with leading and trailing semicolon }
+  { look for the path with leading semicolon}
   { Pos() returns 0 if not found }
   Log('PATH: ' +  ExpandConstant(Param));
-  Result := Pos(';' + ExpandConstant(Param) + ';', ';' + OrigPath + ';') = 0;
+  Result := Pos(';' + ExpandConstant(Param), ';' + OrigPath) = 0;
+end;
+
+{WARNING works for set of paths who are not substrings to each other}
+procedure RemovePath(Path: string);
+var
+  Paths: string;
+  P: Integer;
+begin
+  if not RegQueryStringValue(HKEY_LOCAL_MACHINE, EnvironmentKey, 'Path', Paths) then
+  begin
+    Log('PATH not found');
+  end
+    else
+  begin
+    Log(Format('PATH is [%s]', [Paths]));
+
+    P := Pos(';' + Uppercase(Path), ';' + Uppercase(Paths));
+    if P = 0 then
+    begin
+      Log(Format('Path [%s] not found in PATH', [Path]));
+    end
+      else
+    begin
+      Delete(Paths, P - 1, Length(Path) + 1);
+      Log(Format('Path [%s] removed from PATH => [%s]', [Path, Paths]));
+
+      if RegWriteStringValue(HKEY_LOCAL_MACHINE, EnvironmentKey, 'Path', Paths) then
+      begin
+        Log('PATH written');
+      end
+        else
+      begin
+        Log('Error writing PATH');
+      end;
+    end;
+  end;
+end;
+
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+begin
+  if CurUninstallStep = usPostUninstall then
+  begin
+    RemovePath(ExpandConstant('{app}\script'));
+    RemovePath(ExpandConstant('{app}\git\cmd'));
+    RemovePath(ExpandConstant('{app}\git\usr\bin'));
+    RemovePath(ExpandConstant('{app}\gcc\bin'));
+    RemovePath(ExpandConstant('{app}\make'));
+    RemovePath(ExpandConstant('{app}\dfu'));
+  end;
 end;
 
 [Run]
@@ -124,7 +211,13 @@ end;
 Filename: "{app}\dfu\dfu-driver-install.cmd"; \
     StatusMsg: "Installing DFU Driver"; \
     Flags: runhidden
-; Install STM32 Virtual COM Port Driver
+; Install USB UART STM32 Virtual COM Port Driver
 Filename: "msiexec.exe"; \
     Parameters: "/i ""{tmp}\Virtual Com Port Driver V1.4.0.msi"" /passive /norestart"; \
-    StatusMsg: "Installing STM32 Virtual Com port driver";
+    StatusMsg: "Installing usb uart STM32 Virtual COM Port Driver";
+; Install USB UART FTDI Virtual COM Port Drivers
+Filename: "{tmp}\CDM21228_Setup.exe"; \
+    StatusMsg: "Installing USB UART FTDI Virtual COM Port Drivers";
+
+[UninstallDelete]
+Type: filesandordirs; Name: "{app}"

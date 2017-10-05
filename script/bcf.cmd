@@ -1,1 +1,1 @@
-"%BigClown%\bcf\bcf.exe" %*
+"%BigClownToolchain%\bcf\bcf.exe" %*

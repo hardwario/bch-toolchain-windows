@@ -1,15 +1,9 @@
-/arm-none-eabi/*
-/bin/*
-/lib/*
-/share/*
-/cmd/*
-/etc/*
-/mingw32/*
-/usr/*
-/GNU MCU Eclipse/*
+/*.zip
+/*.exe
+/git/*
+/gcc/*
+/make/*
 /build/*
 /dist/*
 /Output/*
-/*.zip
 /bcf.spec
-/LICENSE.txt
