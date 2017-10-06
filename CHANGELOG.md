@@ -1,4 +1,9 @@
-## [v1.0.0-rc4](https://github.com/bigclownlabs/bch-windows-toolchain/tree/v1.0.0-rc4) (2017-10-05)
+## [v1.0.0-rc5](https://github.com/bigclownlabs/bch-windows-toolchain/releases/tag/v1.0.0-rc5) (2017-10-06)
+
+* Upgrade MinGit 2.14.2.2
+* Add Clink v0.4.8
+
+## [v1.0.0-rc4](https://github.com/bigclownlabs/bch-windows-toolchain/releases/tag/v1.0.0-rc4) (2017-10-05)
 
 * Upgrade bcf v0.2.2
 * Add tasks to add functionality components into Path
@@ -10,7 +15,7 @@
 * Move GNU Make from gcc subdirectory to make subdirectory
 * Add uninstall paths from Path enviroment variable
 
-## [v1.0.0-prerelease.3](https://github.com/bigclownlabs/bch-windows-toolchain/tree/v1.0.0-prerelease.3) (2017-09-16)
+## [v1.0.0-prerelease.3](https://github.com/bigclownlabs/bch-windows-toolchain/releases/tag/v1.0.0-prerelease.3) (2017-09-16)
 
 * Should be fully functinal
 * Change to cmd shell
@@ -18,7 +23,7 @@
 * Update documentation
 * Replace Makefile dependency sh with exe binary version `sh.exe`
 
-## [v1.0.0-prerelease.2](https://github.com/bigclownlabs/bch-windows-toolchain/tree/v1.0.0-prerelease.2) (2017-09-14)
+## [v1.0.0-prerelease.2](https://github.com/bigclownlabs/bch-windows-toolchain/releases/tag/v1.0.0-prerelease.2) (2017-09-14)
 
 * Fix Makefile dependencies (rm, cp)
 * Upgrade bcf v0.2.1
@@ -26,6 +31,6 @@
 * Add ISCC cli Inno Setup compiler into build.cmd
 * Fix registry directory association quotation marks
 
-## [v1.0.0-prerelease.1](https://github.com/bigclownlabs/bch-windows-toolchain/tree/v1.0.0-prerelease.1) (2017-08-31)
+## [v1.0.0-prerelease.1](https://github.com/bigclownlabs/bch-windows-toolchain/releases/tag/v1.0.0-prerelease.1) (2017-08-31)
 
 Initial prerelease.

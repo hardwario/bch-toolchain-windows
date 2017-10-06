@@ -1,5 +1,5 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.0.0-rc4"
+#define MyAppVersion "1.0.0-rc5"
 
 [Setup]
 PrivilegesRequired=admin
@@ -15,7 +15,7 @@ UsePreviousAppDir=yes
 DefaultDirName={pf}\BigClown Toolchain
 DisableDirPage=no
 DisableProgramGroupPage=yes
-OutputBaseFilename=bch-windows-toolchain-setup-v{#MyAppVersion}
+OutputBaseFilename=bch-windows-toolchain-v{#MyAppVersion}
 Compression=lzma
 SolidCompression=yes
 UninstallDisplayIcon={app}\BigClown.ico
@@ -42,6 +42,11 @@ Source: "CHANGELOG.md"; DestDir: "{app}"; Flags: ignoreversion
 
 ; Add BigClown Toolbox paths into Path
 Source: "script\bct.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
+; Shotcut to start BusyBox shell
+Source: "script\bb.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
+
+#define Clink "clink_0.4.8_setup.exe"
+Source: "{#Clink}"; DestDir: "{tmp}"
 
 ; BigClown Firmware Utility
 Source: "dist\bcf\*"; DestDir: "{app}\bcf"; Flags: ignoreversion
@@ -207,6 +212,10 @@ begin
 end;
 
 [Run]
+; Install Clink
+Filename: "{tmp}\{#Clink}"; \
+    Parameters: "/S"; \
+    StatusMsg: "Installing {#Clink}";
 ; Install DFU Drivers
 Filename: "{app}\dfu\dfu-driver-install.cmd"; \
     StatusMsg: "Installing DFU Driver"; \
