@@ -1,3 +1,8 @@
+## [v1.0.0](https://github.com/bigclownlabs/bch-windows-toolchain/releases/tag/v1.0.0) (2017-10-09)
+
+* Add signtool
+* Add cp for make
+
 ## [v1.0.0-rc5](https://github.com/bigclownlabs/bch-windows-toolchain/releases/tag/v1.0.0-rc5) (2017-10-06)
 
 * Upgrade MinGit 2.14.2.2

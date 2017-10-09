@@ -60,6 +60,7 @@ make dfu
       * `make\sh.exe`
       * `make\echo.exe`
       * `make\mkdir.exe`
+      * `make\cp.exe`
       * `make\rm.exe`
   * [Clink v0.4.8](https://github.com/mridgers/clink/)
   * [FTDI Virtual COM Port Drivers 2.12.28](http://www.ftdichip.com/Drivers/VCP.htm)
@@ -76,6 +77,9 @@ make dfu
   * [7-Zip](http://www.7-zip.org/download.html)
   * [Python 2.7.13](https://www.python.org/downloads/release/python-2713/)
   * [Inno Setup v5.5.9](http://www.jrsoftware.org/isinfo.php)
+  * [Windows 10 SDK](https://go.microsoft.com/fwlink/?LinkID=698771) signtool
+   * [Signing Installers You Create with Inno Setup](http://revolution.screenstepslive.com/s/revolution/m/10695/l/563371-signing-installers-you-create-with-inno-setup)
+     * `"C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe" sign /f "...\hardwario-cert-until-20181005.p12" /t http://timestamp.comodoca.com/authenticode /p MY_PASSWORD $f`
 
 ## How to build
 

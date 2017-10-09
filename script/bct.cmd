@@ -8,6 +8,7 @@ if not defined BCT (
         set "BCT=%BigClownToolchain%"
         set "Path=%BigClownToolchain%\script;%BigClownToolchain%\git\cmd;%BigClownToolchain%\git\usr\bin;%BigClownToolchain%\gcc\bin;%BigClownToolchain%\make;%BigClownToolchain%\dfu;%Path%"
         echo Welcome to BigClown Toolchain - bcf, git, ssh, make, dfu-util, arm-none-eabi-gcc
+        echo Documentation https://doc.bigclown.com/
     )
 ) else (
     echo BigClown Toolchain paths allready added

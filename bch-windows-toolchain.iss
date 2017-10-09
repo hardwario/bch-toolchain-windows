@@ -1,7 +1,8 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.0.0-rc5"
+#define MyAppVersion "1.0.0"
 
 [Setup]
+SignTool=signtool
 PrivilegesRequired=admin
 AppId={{61A8E34F-456F-4713-942B-E05CB737DA4F}
 AppName={#MyAppName}
@@ -82,10 +83,11 @@ Source: "git\usr\*"; DestDir: "{app}\git\usr"; Flags: ignoreversion recursesubdi
 Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\make.exe"; DestDir: "{app}\make"; Flags: ignoreversion
 Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\license\make-4.1\README.W32"; DestName: "Make_README.W32"; DestDir: "{app}\make"; Flags: ignoreversion
 ; Makefile dependencies from Git
-Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\sh.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\echo.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\mkdir.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\rm.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\busybox.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\busybox.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\busybox.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\busybox.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\busybox.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Flags: ignoreversion
 Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\license\busybox\README.md"; DestName: "BusyBox_README.md"; DestDir: "{app}\make"; Flags: ignoreversion
 
 ; GNU ARM Embedded Toolchain
