@@ -125,7 +125,7 @@ Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environmen
 ; Add DFU utils into Path
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
     ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}\dfu"; \
-    Check: NeedsAddPath('{app}\gcc\dfu'); Tasks: add_dfu
+    Check: NeedsAddPath('{app}\dfu'); Tasks: add_dfu
 
 ; right-click on folder
 Root: HKLM; Subkey: "SOFTWARE\Classes\directory\shell\BigClown"; ValueType: expandsz; ValueName: ""; ValueData: "Open with {#MyAppName}"; Flags: uninsdeletekey
