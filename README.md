@@ -45,7 +45,7 @@ make dfu
 
 ## Components 
 32bit versions, drivers 32bit & 64bit:
-  * [Git for Windows MinGit-busybox 2.14.2(2)](https://github.com/git-for-windows/git/)
+  * [Git for Windows MinGit-busybox 2.15.0(2)](https://github.com/git-for-windows/git/)
     * `git\cmd`
     * `git\etc`
     * `git\mingw32`
@@ -68,7 +68,7 @@ make dfu
   * [libwdi v1.2.5](https://github.com/pbatard/libwdi) WinUSB drivers for STM32 DFU
   * [Zadig v2.3](http://zadig.akeo.ie/) USB driver check&fix for STM32 DFU
   * [STM32 Virtual COM Port Driver v1.4.0](http://www.st.com/en/development-tools/stsw-stm32102.html)
-  * [BigClown Firmware Flasher v0.2.2](https://github.com/bigclownlabs/bch-firmware-flasher/)
+  * [BigClown Firmware Flasher v0.6.0](https://github.com/bigclownlabs/bch-firmware-flasher/)
     * `bcf\bcf.exe` - Python script packed with [PyInstaller](http://www.pyinstaller.org/)
 
 ## Build prerequisites
@@ -78,8 +78,8 @@ make dfu
   * [Python 2.7.13](https://www.python.org/downloads/release/python-2713/)
   * [Inno Setup v5.5.9](http://www.jrsoftware.org/isinfo.php)
   * [Windows 10 SDK](https://go.microsoft.com/fwlink/?LinkID=698771) signtool
-   * [Signing Installers You Create with Inno Setup](http://revolution.screenstepslive.com/s/revolution/m/10695/l/563371-signing-installers-you-create-with-inno-setup)
-     * `"C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe" sign /f "...\hardwario-cert-until-20181005.p12" /t http://timestamp.comodoca.com/authenticode /p MY_PASSWORD $f`
+    * [Signing Installers You Create with Inno Setup](http://revolution.screenstepslive.com/s/revolution/m/10695/l/563371-signing-installers-you-create-with-inno-setup)
+      * `"C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe" sign /f "...\cert.p12" /t http://timestamp.comodoca.com/authenticode /p MY_PASSWORD $f`
 
 ## How to build
 

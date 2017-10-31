@@ -1,3 +1,10 @@
+## [v1.0.1](https://github.com/bigclownlabs/bch-windows-toolchain/releases/tag/v1.0.0) (2017-10-09)
+
+* Upgrade MinGit 2.15.0
+* Upgrade bcf v0.6.0
+* Fix README.md indentation
+* Rename to bch-toolchain-windows
+
 ## [v1.0.0](https://github.com/bigclownlabs/bch-windows-toolchain/releases/tag/v1.0.0) (2017-10-09)
 
 * Add signtool

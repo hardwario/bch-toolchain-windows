@@ -1,8 +1,8 @@
 if exist git rmdir /S /Q git
 mkdir git
 cd git
-powershell -Command "Invoke-WebRequest https://github.com/git-for-windows/git/releases/download/v2.14.2.windows.2/MinGit-2.14.2.2-busybox-32-bit.zip -OutFile MinGit-2.14.2.2-busybox-32-bit.zip"
-"%ProgramFiles%\7-Zip\7z.exe" x MinGit-2.14.2.2-busybox-32-bit.zip
+powershell -Command "Invoke-WebRequest https://github.com/git-for-windows/git/releases/download/v2.15.0.windows.1/MinGit-2.15.0-busybox-32-bit.zip -OutFile MinGit-2.15.0-busybox-32-bit.zip"
+"%ProgramFiles%\7-Zip\7z.exe" x MinGit-2.15.0-busybox-32-bit.zip
 cd ..
 if exist gcc rmdir /S /Q gcc
 mkdir gcc

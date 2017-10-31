@@ -1,5 +1,5 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 
 [Setup]
 SignTool=signtool
@@ -11,12 +11,12 @@ AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher="HARDWARIO s.r.o."
 AppPublisherURL="https://www.hardwario.com/"
 AppSupportURL="https://www.bigclown.com/contact/"
-AppUpdatesURL="https://github.com/bigclownlabs/bch-windows-toolchain"
+AppUpdatesURL="https://github.com/bigclownlabs/bch-toolchain-windows"
 UsePreviousAppDir=yes
 DefaultDirName={pf}\BigClown Toolchain
 DisableDirPage=no
 DisableProgramGroupPage=yes
-OutputBaseFilename=bch-windows-toolchain-v{#MyAppVersion}
+OutputBaseFilename=bch-toolchain-windows-v{#MyAppVersion}
 Compression=lzma
 SolidCompression=yes
 UninstallDisplayIcon={app}\BigClown.ico
