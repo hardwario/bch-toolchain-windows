@@ -46,7 +46,7 @@ make dfu
 
 ## Components 
 32bit versions, drivers 32bit & 64bit:
-  * [Git for Windows MinGit-busybox 2.15.0(2)](https://github.com/git-for-windows/git/)
+  * [Git for Windows MinGit-busybox 2.15.0](https://github.com/git-for-windows/git/)
     * `git\cmd`
     * `git\etc`
     * `git\mingw32`
@@ -86,6 +86,6 @@ make dfu
 
   * install prerequisites
   * clone repository from GitHub (or unzip from release repository archive)
-  * change to `bch-windows-toolchain` directory
+  * change to `bch-toolchain-windows` directory
   * `download`
   * `build`
