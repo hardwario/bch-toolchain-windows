@@ -1,4 +1,4 @@
-## [v1.0.1](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.0.0) (2017-10-09)
+## [v1.0.1](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.0.1) (2017-10-30)
 
 * Upgrade MinGit 2.15.0
 * Upgrade bcf v0.6.0
