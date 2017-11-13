@@ -1,5 +1,5 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.0.1"
+#define MyAppVersion "1.0.2"
 
 [Setup]
 SignTool=signtool
@@ -41,7 +41,7 @@ Source: "config\.gitconfig"; DestDir: "{%USERPROFILE}"; Flags: ignoreversion onl
 Source: "README.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "CHANGELOG.md"; DestDir: "{app}"; Flags: ignoreversion
 
-; Add BigClown Toolbox paths into Path
+; Add script to start BigClown Toolbox shell
 Source: "script\bct.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
 ; Shotcut to start BusyBox shell
 Source: "script\bb.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
@@ -220,6 +220,7 @@ Filename: "{tmp}\{#Clink}"; \
     StatusMsg: "Installing {#Clink}";
 ; Install DFU Drivers
 Filename: "{app}\dfu\dfu-driver-install.cmd"; \
+    WorkingDir: "{app}\dfu"; \
     StatusMsg: "Installing DFU Driver"; \
     Flags: runhidden
 ; Install USB UART STM32 Virtual COM Port Driver

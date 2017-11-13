@@ -1,3 +1,8 @@
+## [v1.0.2](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.0.2) (2017-11-14)
+
+* Add pnputil to DFU driver install 
+* Set Unicode for console
+
 ## [v1.0.1](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.0.1) (2017-10-30)
 
 * Upgrade MinGit 2.15.0
