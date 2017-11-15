@@ -2,6 +2,7 @@
 
 * Add pnputil to DFU driver install 
 * Set Unicode for console
+* Fix DFU driver install - do not install libwdi driver if it is installed
 
 ## [v1.0.1](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.0.1) (2017-10-30)
 
