@@ -1,4 +1,4 @@
-## [v1.0.2](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.0.2) (2017-11-14)
+## [v1.0.2](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.0.2) (2017-11-20)
 
 * Add pnputil to DFU driver install 
 * Set Unicode for console
