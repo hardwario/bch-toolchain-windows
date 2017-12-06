@@ -17,7 +17,7 @@ Scripts/binaries for toolchain executables:
   * **Daily use** - for documentation have a look at [BigClown Documentation](https://doc.bigclown.com/)
     * BigClown Toolchain scripts
       * `script\bct.cmd` - Entry into BigClown Toolchain - adds Git, GCC, DFU paths at the beginning of `%Path%`. You can pass directory as first parametr to change to working directory.
-      * `script\bcf.cmd` - Executes BigClown Firmware Flasher (implemented in Python and packed by PyInstaller)
+      * `script\bcf.cmd` - Executes BigClown Firmware Tool (implemented in Python and packed by PyInstaller)
       * `script\bb.cmd` - Executes BusyBox shell (for users who likes Linux shell environment)
     * Git
       * `git\cmd\git.exe` - Git executable
