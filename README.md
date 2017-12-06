@@ -48,7 +48,7 @@ make dfu
 
 ## Components 
 32bit versions, drivers 32bit & 64bit:
-  * [Git for Windows MinGit-busybox 2.15.0](https://github.com/git-for-windows/git/)
+  * [Git for Windows MinGit-busybox 2.15.1.2](https://github.com/git-for-windows/git/)
     * `git\cmd`
     * `git\etc`
     * `git\mingw32`
@@ -58,8 +58,9 @@ make dfu
     * `gcc\bin`
     * `gcc\lib`
     * `gcc\share`
-  * [GNU MCU Eclipse Windows Build Tools v2.9-20170629-1013](https://github.com/gnu-mcu-eclipse/windows-build-tools/)
-    * `make\make.exe` - GNU Make, Makefile dependencies by BusyBox:
+  * [GNU Make For Windows 4.2](http://www.equation.com/servlet/equation.cmd?fa=make)
+    * `make\make.exe`
+  * [BusyBox w32 1709-g65e9c0ad9](https://frippery.org/busybox/index.html) - Makefile dependencies
       * `make\sh.exe`
       * `make\echo.exe`
       * `make\mkdir.exe`
@@ -71,7 +72,7 @@ make dfu
   * [libwdi v1.2.5](https://github.com/pbatard/libwdi) WinUSB drivers for STM32 DFU
   * [Zadig v2.3](http://zadig.akeo.ie/) USB driver check&fix for STM32 DFU
   * [STM32 Virtual COM Port Driver v1.4.0](http://www.st.com/en/development-tools/stsw-stm32102.html)
-  * [BigClown Firmware Flasher v0.6.0](https://github.com/bigclownlabs/bch-firmware-flasher/)
+  * [BigClown Firmware Flasher v0.7.0](https://github.com/bigclownlabs/bch-firmware-flasher/)
     * `bcf\bcf.exe` - Python script packed with [PyInstaller](http://www.pyinstaller.org/)
 
 ## Build prerequisites

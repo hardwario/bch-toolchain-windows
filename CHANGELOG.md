@@ -1,3 +1,11 @@
+## [v1.1.0](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.1.0) (2017-12-06)
+
+* Change BusyBox binary repository to https://frippery.org/busybox/index.html (because of regular upgrades availability)
+* Change Make binary repository to http://www.equation.com/servlet/equation.cmd?fa=make (there is more current version available)
+* NOTE BusyBox and Make Windows binary repositories found thanks to https://github.com/lukesampson/scoop/tree/master/bucket
+* Upgrade MinGit to 2.15.1.2
+* Upgrade BigClown Firmware Tool to v0.7.0
+
 ## [v1.0.2](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.0.2) (2017-11-20)
 
 * Add pnputil to DFU driver install 

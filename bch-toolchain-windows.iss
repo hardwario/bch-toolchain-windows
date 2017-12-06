@@ -1,5 +1,5 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.0.2"
+#define MyAppVersion "1.1.0"
 
 [Setup]
 SignTool=signtool
@@ -79,16 +79,14 @@ Source: "git\etc\*"; DestDir: "{app}\git\etc"; Flags: ignoreversion recursesubdi
 Source: "git\mingw32\*"; DestDir: "{app}\git\mingw32"; Flags: ignoreversion recursesubdirs
 Source: "git\usr\*"; DestDir: "{app}\git\usr"; Flags: ignoreversion recursesubdirs
 
-; GNU make
-Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\make.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\license\make-4.1\README.W32"; DestName: "Make_README.W32"; DestDir: "{app}\make"; Flags: ignoreversion
-; Makefile dependencies from Git
-Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\busybox.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\busybox.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\busybox.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\busybox.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\bin\busybox.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.9-20170629-1013\license\busybox\README.md"; DestName: "BusyBox_README.md"; DestDir: "{app}\make"; Flags: ignoreversion
+; GNU Make, BusyBox
+Source: "download\make.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+; Makefile dependencies from BusyBox
+Source: "download\busybox-safe-FRP-1709-g65e9c0ad9.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "download\busybox-safe-FRP-1709-g65e9c0ad9.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "download\busybox-safe-FRP-1709-g65e9c0ad9.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "download\busybox-safe-FRP-1709-g65e9c0ad9.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "download\busybox-safe-FRP-1709-g65e9c0ad9.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Flags: ignoreversion
 
 ; GNU ARM Embedded Toolchain
 ; LICENSE.txt from GNU GNU ARM Embedded Toolchain
