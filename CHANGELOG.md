@@ -1,3 +1,7 @@
+## [v1.2.0](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.2.0) (2017-12-08)
+
+* Change Python to 3.6.3
+
 ## [v1.1.0](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.1.0) (2017-12-06)
 
 * Change BusyBox binary repository to https://frippery.org/busybox/index.html (because of regular upgrades availability)
