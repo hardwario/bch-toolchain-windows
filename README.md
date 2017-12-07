@@ -79,7 +79,7 @@ make dfu
 
   * Microsoft Windows 7, 8, 10 (`cmd` shell)
   * [7-Zip](http://www.7-zip.org/download.html)
-  * [Python 2.7.14](https://www.python.org/downloads/release/python-2714/)
+  * [Python 3.6.3](https://www.python.org/downloads/release/python-363/)
   * [Inno Setup v5.5.9](http://www.jrsoftware.org/isinfo.php)
   * [Windows 10 SDK](https://go.microsoft.com/fwlink/?LinkID=698771) signtool
     * [Signing Installers You Create with Inno Setup](http://revolution.screenstepslive.com/s/revolution/m/10695/l/563371-signing-installers-you-create-with-inno-setup)
