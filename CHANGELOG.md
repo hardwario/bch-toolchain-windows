@@ -1,3 +1,7 @@
+## [v1.2.2](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.2.2) (2017-12-29)
+
+* Upgrade Python to 3.6.4
+
 ## [v1.2.1](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.2.1) (2017-12-19)
 
 * Update DFU driver install
