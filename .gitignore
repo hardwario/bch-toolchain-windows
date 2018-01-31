@@ -3,7 +3,8 @@
 /git/*
 /gcc/*
 /make/*
-/build/*
-/dist/*
+script/build/*
+script/dist/*
+script/__pycache__/*
+script/bcf.spec
 /Output/*
-/bcf.spec

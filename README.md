@@ -48,19 +48,19 @@ make dfu
 
 ## Components 
 32bit versions, drivers 32bit & 64bit:
-  * [Git for Windows MinGit-busybox 2.15.1.2](https://github.com/git-for-windows/git/)
+  * [Git for Windows MinGit-busybox 2.16.1](https://github.com/git-for-windows/git/)
     * `git\cmd`
     * `git\etc`
     * `git\mingw32`
     * `git\usr`
-  * [GNU ARM Embedded Toolchain 6-2017-q2-update](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
+  * [GNU ARM Embedded Toolchain 7-2017-q4-major](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
     * `gcc\arm-none-eabi`
     * `gcc\bin`
     * `gcc\lib`
     * `gcc\share`
   * [GNU Make For Windows 4.2](http://www.equation.com/servlet/equation.cmd?fa=make)
-    * `make\make.exe`
-  * [BusyBox w32 1709-g65e9c0ad9](https://frippery.org/busybox/index.html) - Makefile dependencies
+    * `make\make.exe` FRP-1722-g096aee2bb.exe).
+  * [BusyBox w32 1722-g096aee2bb](https://frippery.org/busybox/index.html) - Makefile dependencies
       * `make\sh.exe`
       * `make\echo.exe`
       * `make\mkdir.exe`
@@ -72,7 +72,7 @@ make dfu
   * [libwdi v1.2.5](https://github.com/pbatard/libwdi) WinUSB drivers for STM32 DFU
   * [Zadig v2.3](http://zadig.akeo.ie/) USB driver check&fix for STM32 DFU
   * [STM32 Virtual COM Port Driver v1.4.0](http://www.st.com/en/development-tools/stsw-stm32102.html)
-  * [BigClown Firmware Flasher v0.7.0](https://github.com/bigclownlabs/bch-firmware-flasher/)
+  * [BigClown Firmware Flasher v0.10.0](https://github.com/bigclownlabs/bch-firmware-flasher/)
     * `bcf\bcf.exe` - Python script packed with [PyInstaller](http://www.pyinstaller.org/)
 
 ## Build prerequisites

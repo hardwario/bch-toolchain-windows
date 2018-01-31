@@ -1,5 +1,5 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.2.2"
+#define MyAppVersion "1.3.0"
 
 [Setup]
 SignTool=signtool
@@ -50,7 +50,7 @@ Source: "script\bb.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
 Source: "{#Clink}"; DestDir: "{tmp}"
 
 ; BigClown Firmware Utility
-Source: "dist\bcf\*"; DestDir: "{app}\bcf"; Flags: ignoreversion
+Source: "script\dist\bcf\*"; DestDir: "{app}\bcf"; Flags: ignoreversion
 Source: "script\bcf.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
 
 ; USB UART FTDI Virtual COM Port Drivers
@@ -67,6 +67,7 @@ Source: "download\zadig-2.3.exe"; DestDir: "{app}\dfu"; DestName: "zadig.exe"; F
 ; Multiple installations bloat PNP unfortunately, identify and delete all except one occurence
 ; pnputil /enumdrivers
 ; pnputil /deletedriver oemXX.inf
+Source: "script\zadig.ini"; DestDir: "{app}\dfu"; Flags: ignoreversion
 Source: "download\zadic.exe"; DestDir: "{app}\dfu"; Flags: ignoreversion
 Source: "script\dfu-driver-install.cmd"; DestDir: "{app}\dfu"; Flags: ignoreversion
 ; https://sourceforge.net/projects/dfu-util/files/?source=navbar
@@ -82,11 +83,11 @@ Source: "git\usr\*"; DestDir: "{app}\git\usr"; Flags: ignoreversion recursesubdi
 ; GNU Make, BusyBox
 Source: "download\make.exe"; DestDir: "{app}\make"; Flags: ignoreversion
 ; Makefile dependencies from BusyBox
-Source: "download\busybox-safe-FRP-1709-g65e9c0ad9.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "download\busybox-safe-FRP-1709-g65e9c0ad9.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "download\busybox-safe-FRP-1709-g65e9c0ad9.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "download\busybox-safe-FRP-1709-g65e9c0ad9.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "download\busybox-safe-FRP-1709-g65e9c0ad9.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "download\busybox-w32-FRP-1722-g096aee2bb.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "download\busybox-w32-FRP-1722-g096aee2bb.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "download\busybox-w32-FRP-1722-g096aee2bb.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "download\busybox-w32-FRP-1722-g096aee2bb.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "download\busybox-w32-FRP-1722-g096aee2bb.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Flags: ignoreversion
 
 ; GNU ARM Embedded Toolchain
 ; LICENSE.txt from GNU GNU ARM Embedded Toolchain

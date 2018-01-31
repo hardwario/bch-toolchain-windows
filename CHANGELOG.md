@@ -1,3 +1,11 @@
+## [v1.3.0](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.3.0) (2018-01-31)
+
+* Add zadig.ini
+* Upgrade BigClown Firmware Tool bcf to v0.11.0
+* Upgrade Git to 2.16.1
+* Upgrade GNU ARM Embedded Toolchain to 7-2017-q4-major
+* Upgrade BusyBox to 1722-g096aee2bb
+
 ## [v1.2.2](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.2.2) (2017-12-29)
 
 * Upgrade Python to 3.6.4
