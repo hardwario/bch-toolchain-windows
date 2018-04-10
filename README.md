@@ -71,7 +71,7 @@ make dfu
   * [libwdi v1.2.5](https://github.com/pbatard/libwdi) WinUSB drivers for STM32 DFU
   * [Zadig v2.3](http://zadig.akeo.ie/) USB driver check&fix for STM32 DFU
   * [STM32 Virtual COM Port Driver v1.4.0](http://www.st.com/en/development-tools/stsw-stm32102.html)
-  * [BigClown Firmware Flasher v0.10.0](https://github.com/bigclownlabs/bch-firmware-flasher/)
+  * [BigClown Firmware Flasher v0.13.1](https://github.com/bigclownlabs/bch-firmware-flasher/)
     * `bcf\bcf.exe` - Python script packed with [PyInstaller](http://www.pyinstaller.org/)
 
 ## Build prerequisites
