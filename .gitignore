@@ -3,6 +3,7 @@
 /git/*
 /gcc/*
 /make/*
+/make64/*
 script/build/*
 script/dist/*
 script/__pycache__/*

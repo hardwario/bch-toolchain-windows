@@ -58,15 +58,14 @@ make dfu
     * `gcc\bin`
     * `gcc\lib`
     * `gcc\share`
-  * [GNU Make For Windows 4.2](http://www.equation.com/servlet/equation.cmd?fa=make)
-    * `make\make.exe` FRP-1722-g096aee2bb.exe).
-  * [BusyBox w32 1722-g096aee2bb](https://frippery.org/busybox/index.html) - Makefile dependencies
+  * [GNU MCU Eclipse Windows Build Tools v2.10-20180103, GNU make to version 4.2.1](https://github.com/gnu-mcu-eclipse/windows-build-tools/)
+    * `make\make.exe` - GNU Make, Makefile dependencies by BusyBox:
       * `make\sh.exe`
       * `make\echo.exe`
       * `make\mkdir.exe`
       * `make\cp.exe`
-      * `make\rm.exe`
-  * [Clink v0.4.8](https://github.com/mridgers/clink/)
+      * `make\rm.exe`   
+  * [Clink v0.4.9](https://github.com/mridgers/clink/)
   * [FTDI Virtual COM Port Drivers 2.12.28](http://www.ftdichip.com/Drivers/VCP.htm)
   * [dfu-util-static v0.8](https://sourceforge.net/projects/dfu-util/files/dfu-util-0.8-binaries/win32-mingw32/)
   * [libwdi v1.2.5](https://github.com/pbatard/libwdi) WinUSB drivers for STM32 DFU

@@ -1,5 +1,5 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.3.0"
+#define MyAppVersion "1.4.0"
 
 [Setup]
 SignTool=signtool
@@ -46,7 +46,7 @@ Source: "script\bct.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
 ; Shotcut to start BusyBox shell
 Source: "script\bb.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
 
-#define Clink "clink_0.4.8_setup.exe"
+#define Clink "clink_0.4.9_setup.exe"
 Source: "{#Clink}"; DestDir: "{tmp}"
 
 ; BigClown Firmware Utility
@@ -80,14 +80,24 @@ Source: "git\etc\*"; DestDir: "{app}\git\etc"; Flags: ignoreversion recursesubdi
 Source: "git\mingw32\*"; DestDir: "{app}\git\mingw32"; Flags: ignoreversion recursesubdirs
 Source: "git\usr\*"; DestDir: "{app}\git\usr"; Flags: ignoreversion recursesubdirs
 
-; GNU Make, BusyBox
-Source: "download\make.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-; Makefile dependencies from BusyBox
-Source: "download\busybox-w32-FRP-1722-g096aee2bb.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "download\busybox-w32-FRP-1722-g096aee2bb.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "download\busybox-w32-FRP-1722-g096aee2bb.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "download\busybox-w32-FRP-1722-g096aee2bb.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "download\busybox-w32-FRP-1722-g096aee2bb.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Flags: ignoreversion
+; GNU make
+Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\make.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion 
+Source: "make64\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\make.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion 
+Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\licenses\make-4.2.1\README"; DestName: "Make_README"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\licenses\make-4.2.1\README.W32"; DestName: "Make_README.W32"; DestDir: "{app}\make"; Flags: ignoreversion
+; Makefile dependencies from Git
+Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\licenses\busybox\README"; DestName: "BusyBox_README"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\licenses\busybox\README.md"; DestName: "BusyBox_README.md"; DestDir: "{app}\make"; Flags: ignoreversion
 
 ; GNU ARM Embedded Toolchain
 ; LICENSE.txt from GNU GNU ARM Embedded Toolchain

@@ -1,3 +1,13 @@
+## [v1.4.0](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.4.0) (2018-04-10)
+
+* Change Make and BusyBox binary repository back to https://github.com/gnu-mcu-eclipse/windows-build-tools/ (semas to be more stable)
+* Distinguish 32bit / 64bit installation for Make and BusyBox (32bit version crashes on 64bit Windows now on some instalations)
+* Upgrade Build Tools to v2.10-20180103, GNU make to version 4.2.1
+* Upgrade Python to 3.6.5
+* Upgrade BigClown Firmware Tool bcf to v0.13.1
+* Upgrade Git to v2.17.0
+* Upgrade Clink to v0.4.9
+
 ## [v1.3.0](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.3.0) (2018-01-31)
 
 * Add zadig.ini
