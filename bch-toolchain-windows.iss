@@ -1,5 +1,5 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.4.0"
+#define MyAppVersion "1.4.1"
 
 [Setup]
 SignTool=signtool
