@@ -1,3 +1,7 @@
+## [v1.4.1](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.4.1) (2018-05-18)
+
+* Upgrade BigClown Firmware Tool bcf to v0.14.0
+
 ## [v1.4.0](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.4.0) (2018-04-10)
 
 * Change Make and BusyBox binary repository back to https://github.com/gnu-mcu-eclipse/windows-build-tools/ (semas to be more stable)
