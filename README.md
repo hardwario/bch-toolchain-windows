@@ -71,14 +71,14 @@ make dfu
   * [libwdi v1.2.5](https://github.com/pbatard/libwdi) WinUSB drivers for STM32 DFU
   * [Zadig v2.3](http://zadig.akeo.ie/) USB driver check&fix for STM32 DFU
   * [STM32 Virtual COM Port Driver v1.4.0](http://www.st.com/en/development-tools/stsw-stm32102.html)
-  * [BigClown Firmware Flasher v0.13.1](https://github.com/bigclownlabs/bch-firmware-flasher/)
+  * [BigClown Firmware Flasher v0.15.0](https://github.com/bigclownlabs/bch-firmware-flasher/)
     * `bcf\bcf.exe` - Python script packed with [PyInstaller](http://www.pyinstaller.org/)
 
 ## Build prerequisites
 
   * Microsoft Windows 7, 8, 10 (`cmd` shell)
-  * [7-Zip](http://www.7-zip.org/download.html)
-  * [Python 3.6.4](https://www.python.org/downloads/release/python-364/)
+  * [7-Zip](http://www.7-zip.org/) installed by [Scoop](https://scoop.sh/)
+  * [Python](https://www.python.org/) 3.6.5 32bit installed by [Scoop](https://scoop.sh/) 
   * [Inno Setup v5.5.9](http://www.jrsoftware.org/isinfo.php)
   * [Windows 10 SDK](https://go.microsoft.com/fwlink/?LinkID=698771) signtool
     * [Signing Installers You Create with Inno Setup](http://revolution.screenstepslive.com/s/revolution/m/10695/l/563371-signing-installers-you-create-with-inno-setup)

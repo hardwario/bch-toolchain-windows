@@ -1,3 +1,7 @@
+## [v1.4.2](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.4.2) (2018-05-23)
+
+* Upgrade BigClown Firmware Tool bcf to v0.15.0
+
 ## [v1.4.1](https://github.com/bigclownlabs/bch-toolchain-windows/releases/tag/v1.4.1) (2018-05-18)
 
 * Upgrade BigClown Firmware Tool bcf to v0.14.0
