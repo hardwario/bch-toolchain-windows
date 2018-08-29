@@ -1,5 +1,5 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.4.2"
+#define MyAppVersion "1.5.0"
 
 [Setup]
 SignTool=signtool
@@ -39,7 +39,6 @@ Source: "BigClown.ico"; DestDir: "{app}"; Flags: ignoreversion
 ; Keep LF in source code, DO NOT translate to CRLF!
 Source: "config\.gitconfig"; DestDir: "{%USERPROFILE}"; Flags: ignoreversion onlyifdoesntexist uninsneveruninstall
 Source: "README.md"; DestDir: "{app}"; Flags: ignoreversion
-Source: "CHANGELOG.md"; DestDir: "{app}"; Flags: ignoreversion
 
 ; Add script to start BigClown Toolbox shell
 Source: "script\bct.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
@@ -63,7 +62,7 @@ Source: "download\Virtual Com port driver V1.4.0.msi"; DestDir: "{tmp}";
 
 ; DFU
 ; http://zadig.akeo.ie/ https://github.com/pbatard/libwdi
-Source: "download\zadig-2.3.exe"; DestDir: "{app}\dfu"; DestName: "zadig.exe"; Flags: ignoreversion
+Source: "download\zadig-2.4.exe"; DestDir: "{app}\dfu"; DestName: "zadig.exe"; Flags: ignoreversion
 ; Multiple installations bloat PNP unfortunately, identify and delete all except one occurence
 ; pnputil /enumdrivers
 ; pnputil /deletedriver oemXX.inf
@@ -81,23 +80,23 @@ Source: "git\mingw32\*"; DestDir: "{app}\git\mingw32"; Flags: ignoreversion recu
 Source: "git\usr\*"; DestDir: "{app}\git\usr"; Flags: ignoreversion recursesubdirs
 
 ; GNU make
-Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\make.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion 
-Source: "make64\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\make.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion 
-Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\licenses\make-4.2.1\README"; DestName: "Make_README"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\licenses\make-4.2.1\README.W32"; DestName: "Make_README.W32"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\make.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion 
+Source: "make64\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\make.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion 
+Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\gnu-mcu-eclipse\licenses\make-4.2.1\README"; DestName: "Make_README"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\gnu-mcu-eclipse\licenses\make-4.2.1\README.W32"; DestName: "Make_README.W32"; DestDir: "{app}\make"; Flags: ignoreversion
 ; Makefile dependencies from Git
-Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
-Source: "make64\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
-Source: "make64\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
-Source: "make64\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
-Source: "make64\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
-Source: "make64\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\bin\busybox.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\licenses\busybox\README"; DestName: "BusyBox_README"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.10-20180103-1919\licenses\busybox\README.md"; DestName: "BusyBox_README.md"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\gnu-mcu-eclipse\licenses\busybox-w32\README"; DestName: "BusyBox_README"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\gnu-mcu-eclipse\licenses\busybox-w32\README.md"; DestName: "BusyBox_README.md"; DestDir: "{app}\make"; Flags: ignoreversion
 
 ; GNU ARM Embedded Toolchain
 ; LICENSE.txt from GNU GNU ARM Embedded Toolchain

@@ -48,17 +48,19 @@ make dfu
 
 ## Components 
 32bit versions, drivers 32bit & 64bit:
-  * [Git for Windows MinGit-busybox 2.16.1](https://github.com/git-for-windows/git/)
+  * [BigClown Firmware Flasher v0.19.0](https://github.com/bigclownlabs/bch-firmware-flasher/)
+    * `bcf\bcf.exe` - Python script packed with [PyInstaller](http://www.pyinstaller.org/)
+  * [Git for Windows MinGit-busybox 2.18.0](https://github.com/git-for-windows/git/)
     * `git\cmd`
     * `git\etc`
     * `git\mingw32`
     * `git\usr`
-  * [GNU ARM Embedded Toolchain 7-2017-q4-major](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
+  * [GNU ARM Embedded Toolchain 7-2018-q2-update](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
     * `gcc\arm-none-eabi`
     * `gcc\bin`
     * `gcc\lib`
     * `gcc\share`
-  * [GNU MCU Eclipse Windows Build Tools v2.10-20180103, GNU make to version 4.2.1](https://github.com/gnu-mcu-eclipse/windows-build-tools/)
+  * [GNU MCU Eclipse Windows Build Tools v2.11-20180428, GNU make version 4.2.1](https://github.com/gnu-mcu-eclipse/windows-build-tools/)
     * `make\make.exe` - GNU Make, Makefile dependencies by BusyBox:
       * `make\sh.exe`
       * `make\echo.exe`
@@ -69,16 +71,14 @@ make dfu
   * [FTDI Virtual COM Port Drivers 2.12.28](http://www.ftdichip.com/Drivers/VCP.htm)
   * [dfu-util-static v0.8](https://sourceforge.net/projects/dfu-util/files/dfu-util-0.8-binaries/win32-mingw32/)
   * [libwdi v1.2.5](https://github.com/pbatard/libwdi) WinUSB drivers for STM32 DFU
-  * [Zadig v2.3](http://zadig.akeo.ie/) USB driver check&fix for STM32 DFU
+  * [Zadig v2.4](http://zadig.akeo.ie/) USB driver check&fix for STM32 DFU
   * [STM32 Virtual COM Port Driver v1.4.0](http://www.st.com/en/development-tools/stsw-stm32102.html)
-  * [BigClown Firmware Flasher v0.15.0](https://github.com/bigclownlabs/bch-firmware-flasher/)
-    * `bcf\bcf.exe` - Python script packed with [PyInstaller](http://www.pyinstaller.org/)
 
 ## Build prerequisites
 
   * Microsoft Windows 7, 8, 10 (`cmd` shell)
   * [7-Zip](http://www.7-zip.org/) installed by [Scoop](https://scoop.sh/)
-  * [Python](https://www.python.org/) 3.6.5 32bit installed by [Scoop](https://scoop.sh/) 
+  * [Python](https://www.python.org/) 3.6.6 32bit installed by [Scoop](https://scoop.sh/) 
   * [Inno Setup v5.5.9](http://www.jrsoftware.org/isinfo.php)
   * [Windows 10 SDK](https://go.microsoft.com/fwlink/?LinkID=698771) signtool
     * [Signing Installers You Create with Inno Setup](http://revolution.screenstepslive.com/s/revolution/m/10695/l/563371-signing-installers-you-create-with-inno-setup)
