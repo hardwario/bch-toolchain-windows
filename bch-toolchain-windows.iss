@@ -1,5 +1,5 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.5.0"
+#define MyAppVersion "1.6.0"
 
 [Setup]
 SignTool=signtool
@@ -27,7 +27,7 @@ ChangesAssociations=true
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
-Name: "add_script"; Description: "Add BigClown Toolchain scripts bct and bcf into Path";
+Name: "add_script"; Description: "Add BigClown Toolchain scripts bct and tools into Path";
 Name: "add_git"; Description: "Add Git and SSH (from Git) into Path"; Flags: unchecked
 Name: "add_gcc"; Description: "Add GCC (GNU Arm Embedded Toolchain) into Path"; Flags: unchecked
 Name: "add_make"; Description: "Add Make into Path"; Flags: unchecked
@@ -40,17 +40,29 @@ Source: "BigClown.ico"; DestDir: "{app}"; Flags: ignoreversion
 Source: "config\.gitconfig"; DestDir: "{%USERPROFILE}"; Flags: ignoreversion onlyifdoesntexist uninsneveruninstall
 Source: "README.md"; DestDir: "{app}"; Flags: ignoreversion
 
-; Add script to start BigClown Toolbox shell
+; Add script to start BigClown Toolchain shell
 Source: "script\bct.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
+; Add script to start BigClown sandbox
+Source: "script\bcsb.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
 ; Shotcut to start BusyBox shell
 Source: "script\bb.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
 
+; BigClown tools
+Source: "script\dist\tools\*"; DestDir: "{app}\tools"; Flags: ignoreversion
+Source: "script\bcf.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
+Source: "script\bch.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
+Source: "script\bcg.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
+; collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts
+Source: "..\scoop\apps\python36\current\Lib\site-packages\certifi\cacert.pem"; DestDir: "{app}\tools\certifi"; Flags: ignoreversion
+
+; ConEmu
+Source: "conemu\*"; DestDir: "{app}\conemu"; Flags: ignoreversion recursesubdirs
+
+; MQTT Wall
+Source: "mqtt-wall\*"; DestDir: "{app}\mqtt-wall"; Flags: ignoreversion recursesubdirs
+
 #define Clink "clink_0.4.9_setup.exe"
 Source: "{#Clink}"; DestDir: "{tmp}"
-
-; BigClown Firmware Utility
-Source: "script\dist\bcf\*"; DestDir: "{app}\bcf"; Flags: ignoreversion
-Source: "script\bcf.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
 
 ; USB UART FTDI Virtual COM Port Drivers
 ; http://www.ftdichip.com/Drivers/VCP.htm
@@ -79,24 +91,25 @@ Source: "git\etc\*"; DestDir: "{app}\git\etc"; Flags: ignoreversion recursesubdi
 Source: "git\mingw32\*"; DestDir: "{app}\git\mingw32"; Flags: ignoreversion recursesubdirs
 Source: "git\usr\*"; DestDir: "{app}\git\usr"; Flags: ignoreversion recursesubdirs
 
+#define BuildTools "GNU MCU Eclipse\Build Tools\2.11-20180428-1604"
 ; GNU make
-Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\make.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion 
-Source: "make64\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\make.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion 
-Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\gnu-mcu-eclipse\licenses\make-4.2.1\README"; DestName: "Make_README"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\gnu-mcu-eclipse\licenses\make-4.2.1\README.W32"; DestName: "Make_README.W32"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\{#BuildTools}\bin\make.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion 
+Source: "make64\{#BuildTools}\bin\make.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion 
+Source: "make\{#BuildTools}\gnu-mcu-eclipse\licenses\make-4.2.1\README"; DestName: "Make_README"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\{#BuildTools}\gnu-mcu-eclipse\licenses\make-4.2.1\README.W32"; DestName: "Make_README.W32"; DestDir: "{app}\make"; Flags: ignoreversion
 ; Makefile dependencies from Git
-Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
-Source: "make64\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
-Source: "make64\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
-Source: "make64\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
-Source: "make64\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
-Source: "make64\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\bin\busybox.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\gnu-mcu-eclipse\licenses\busybox-w32\README"; DestName: "BusyBox_README"; DestDir: "{app}\make"; Flags: ignoreversion
-Source: "make\GNU MCU Eclipse\Build Tools\2.11-20180428-1604\gnu-mcu-eclipse\licenses\busybox-w32\README.md"; DestName: "BusyBox_README.md"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\{#BuildTools}\bin\busybox.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\{#BuildTools}\bin\busybox.exe"; DestName: "sh.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\{#BuildTools}\bin\busybox.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\{#BuildTools}\bin\busybox.exe"; DestName: "echo.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\{#BuildTools}\bin\busybox.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\{#BuildTools}\bin\busybox.exe"; DestName: "mkdir.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\{#BuildTools}\bin\busybox.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\{#BuildTools}\bin\busybox.exe"; DestName: "cp.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\{#BuildTools}\bin\busybox.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion
+Source: "make64\{#BuildTools}\bin\busybox.exe"; DestName: "rm.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion
+Source: "make\{#BuildTools}\gnu-mcu-eclipse\licenses\busybox-w32\README"; DestName: "BusyBox_README"; DestDir: "{app}\make"; Flags: ignoreversion
+Source: "make\{#BuildTools}\gnu-mcu-eclipse\licenses\busybox-w32\README.md"; DestName: "BusyBox_README.md"; DestDir: "{app}\make"; Flags: ignoreversion
 
 ; GNU ARM Embedded Toolchain
 ; LICENSE.txt from GNU GNU ARM Embedded Toolchain
@@ -111,7 +124,7 @@ Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environmen
     ValueType: expandsz; ValueName: "BigClownToolchain"; ValueData: "{app}"; Flags: uninsdeletevalue
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
     ValueType: expandsz; ValueName: "BigClownToolchainVersion"; ValueData: "{#MyAppVersion}"; Flags: uninsdeletevalue
-; Add BigClown Toolchain scripts bct and bcf into Path
+; Add BigClown Toolchain tools scripts into Path
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
     ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}\script"; \
     Check: NeedsAddPath('{app}\script'); Tasks: add_script
@@ -151,6 +164,10 @@ Name: "{commonprograms}\{#MyAppName}"; Filename: "{win}\system32\cmd.exe"; IconF
     Parameters: "/K ""{app}\script\bct.cmd"""; WorkingDir: "{%USERPROFILE}"
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{win}\system32\cmd.exe"; IconFilename: "{app}\BigClown.ico"; \
     Parameters: "/K ""{app}\script\bct.cmd"""; WorkingDir: "{%USERPROFILE}"
+Name: "{commonprograms}\BigClown sandbox"; Filename: "{win}\system32\cmd.exe"; IconFilename: "{app}\BigClown.ico"; \
+    Parameters: "/K ""{app}\script\bcsb.cmd"""; WorkingDir: "{%USERPROFILE}"
+Name: "{commondesktop}\BigClown sandbox"; Filename: "{win}\system32\cmd.exe"; IconFilename: "{app}\BigClown.ico"; \
+    Parameters: "/K ""{app}\script\bcsb.cmd"""; WorkingDir: "{%USERPROFILE}"
 
 [Code]
 const

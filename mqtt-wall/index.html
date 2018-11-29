@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>MQTT Wall</title>
+
+        <!-- favicon and browser features -->
+        <link rel="apple-touch-icon" sizes="180x180" href="style/apple-touch-icon.png">
+        <link rel="mask-icon" href="style/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="icon" type="image/png" href="style/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="style/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="style/manifest.json">
+        <link rel="shortcut icon" href="style/favicon.ico">
+        <meta name='apple-mobile-web-app-capable' content='yes'>
+        <meta name='mobile-web-app-capable' content='yes'>
+        <meta name="msapplication-config" content="style/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        <script type="text/javascript">
+
+        // Configuration of MQTT Wall
+        var config = {
+
+            // MQTT server to connect (must support websocket protocol)
+            server: {
+                // Full URI of server (include protocol ws:// or wss:// for secure connection) and path ("/" is required if path is empty)
+                // Examples for http://test.mosquitto.org/:
+                //   - insecure connection:  "ws://test.mosquitto.org:8080/"
+                //   - secure connection:    "wss://test.mosquitto.org:8081/"
+                uri: "ws://127.0.0.1:8080/",
+
+                // User name (optional)
+                //username: "",
+
+                // Password (in base64, optional)
+                //password: ""
+            },
+
+            // Default subscribed topic 
+            defaultTopic: "#",
+
+            // Show counter for each topic
+            showCounter: true,
+
+            // New message will be placed in alphabetical order
+            alphabeticalSort: true,
+
+            // QoS of subscription (0 .. 2)
+            qos: 0
+        };
+
+        </script>
+    </head>
+    <body>
+        <!-- Content -->
+        <div id="frame">
+
+            <div id="header">
+                <div id="topic-box">
+                    <input type="text" id="topic" value="" title="Topic to subscribe">
+                </div>
+            </div>
+
+            <div id="toast"></div>
+
+            <section class="messages"></section>
+
+            <div id="footer">
+                <p class="status">
+                    Client <code id="status-client" title="Client ID">?</code> is 
+                    <code id="status-state" class="connecting"><em>&bull;</em> <span>connecting...</span></code> to 
+                    <code id="status-host">?</code>
+                    <em>via</em> MQTT Wall 0.4.0 (<a href="https://github.com/bastlirna/mqtt-wall">github</a>).
+                </p>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="jquery.color-2.1.2.min.js"></script>
+        <script type="text/javascript" src="paho-mqtt-min-1.0.3.js"></script>
+        <script type="text/javascript" src="wall.js"></script>
+    </body>
+</html>

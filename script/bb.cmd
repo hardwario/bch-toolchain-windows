@@ -1,1 +1,1 @@
-"%BigClownToolchain%\git\mingw32\bin\busybox.exe" sh %*
+@"%BigClownToolchain%\git\mingw32\bin\busybox.exe" sh %*

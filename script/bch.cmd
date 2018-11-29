@@ -1,0 +1,1 @@
+@"%BigClownToolchain%\tools\bch.exe" %*
