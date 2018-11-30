@@ -5,13 +5,6 @@ For Microsoft Windows 7, 8, 10 (32bit and 64bit).
 
 Toolchain is based on [BusyBox](https://busybox.net/about.html) environment, Git, GNU C, GNU Make.
 
-Default install destination directory is `%ProgramFiles(x86)%` on 64bit OS or into `%ProgramFiles%` on 32bit OS (can be changed by user during installation).
-Defines [HKLM](https://www.google.com/search?q=hklm) environment variable `%BigClownToolchain%` pointing to top level directory of installation.
-
-During first installation adds `%BigClownToolchain%\script` at the end of `%Path%` (can be deselected during installation) on HKLM level by default. That allows to use tools (`bcf`, `bch`, `bcg`, etc) from anywhere and start Toolchain by `bct`.
-
-If you like to use different version of Git, GNU C or other tools, just use your favourite direcotry before BigClown installation in `%Path%` (e.g. change paths in `bct.cmd` or just copy `bct.cmd`, modify paths and use that modified script to define another paths). 
-
 Scripts/binaries for toolchain executables:
 
   * **Daily use** - for documentation have a look at [BigClown Documentation](https://doc.bigclown.com/)
@@ -19,10 +12,10 @@ Scripts/binaries for toolchain executables:
       * `script\bct.cmd` - Entry into BigClown Toolchain - adds Git, GCC, DFU paths at the beginning of `%Path%`. You can pass directory as first parametr to change to working directory.
       * `script\bcf.cmd` - Executes BigClown Firmware Tool (implemented in Python and packed by PyInstaller)
       * `script\bb.cmd` - Executes BusyBox shell (for users who likes Linux shell environment)
-    * BigClown Snadbox in ConEmu `script\bcsb.cmd`
+    * BigClown Sandbox in ConEmu `script\bcsb.cmd`
       * MQTT broker
-      * MQTT cli client bch
-      * BigClown Gateway
+      * MQTT cli client `bch`
+      * BigClown Gateway `bcg`
       * MQTT Wall web application
     * Git
       * `git\cmd\git.exe` - Git executable
@@ -39,7 +32,22 @@ Toolchain can be started in different ways:
   * Pick **BigClown Toolchain** in Start menu or double-click icon in Desktop
   * Start cmd and then `bct` (`script\bct.cmd` is used for that)
   * Right click on directory and choose **Open with BigClown Toolchain** (defined in [HKLM](https://www.google.com/search?q=HKCU))
-  
+
+Sandbox can be started: in different ways:
+  * Pick **BigClown Sandbox** in Start menu or double-click icon in Desktop
+  * Start cmd and then `bcsb` (`script\bcsb.cmd` is used for that)
+
+Serial port for Gateway in Sandbox can be customized by setting environment variable PORT. If PORT environment variable it is not set, Sandbox uses last COM port reported by `bcg devices`.
+
+## Installation directory
+
+Default install destination directory is `%ProgramFiles(x86)%` on 64bit OS or into `%ProgramFiles%` on 32bit OS (can be changed by user during installation).
+Defines [HKLM](https://www.google.com/search?q=hklm) environment variable `%BigClownToolchain%` pointing to top level directory of installation.
+
+During first installation adds `%BigClownToolchain%\script` at the end of `%Path%` (can be deselected during installation) on HKLM level by default. That allows to use tools (`bcf`, `bch`, `bcg`, etc) from anywhere and start Toolchain by `bct`.
+
+If you like to use different version of Git, GNU C or other tools, just use your favourite direcotry before BigClown installation in `%Path%` (e.g. change paths in `bct.cmd` or just copy `bct.cmd`, modify paths and use that modified script to define another paths). 
+
 ## Usage example
 
 Start `cmd`.

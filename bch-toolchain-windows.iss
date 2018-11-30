@@ -42,7 +42,7 @@ Source: "README.md"; DestDir: "{app}"; Flags: ignoreversion
 
 ; Add script to start BigClown Toolchain shell
 Source: "script\bct.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
-; Add script to start BigClown sandbox
+; Add script to start BigClown Sandbox
 Source: "script\bcsb.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
 ; Shotcut to start BusyBox shell
 Source: "script\bb.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
@@ -52,6 +52,7 @@ Source: "script\dist\tools\*"; DestDir: "{app}\tools"; Flags: ignoreversion
 Source: "script\bcf.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
 Source: "script\bch.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
 Source: "script\bcg.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
+Source: "script\bcp.cmd"; DestDir: "{app}\script"; Flags: ignoreversion
 ; collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts
 Source: "..\scoop\apps\python36\current\Lib\site-packages\certifi\cacert.pem"; DestDir: "{app}\tools\certifi"; Flags: ignoreversion
 
@@ -164,10 +165,10 @@ Name: "{commonprograms}\{#MyAppName}"; Filename: "{win}\system32\cmd.exe"; IconF
     Parameters: "/K ""{app}\script\bct.cmd"""; WorkingDir: "{%USERPROFILE}"
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{win}\system32\cmd.exe"; IconFilename: "{app}\BigClown.ico"; \
     Parameters: "/K ""{app}\script\bct.cmd"""; WorkingDir: "{%USERPROFILE}"
-Name: "{commonprograms}\BigClown sandbox"; Filename: "{win}\system32\cmd.exe"; IconFilename: "{app}\BigClown.ico"; \
-    Parameters: "/K ""{app}\script\bcsb.cmd"""; WorkingDir: "{%USERPROFILE}"
-Name: "{commondesktop}\BigClown sandbox"; Filename: "{win}\system32\cmd.exe"; IconFilename: "{app}\BigClown.ico"; \
-    Parameters: "/K ""{app}\script\bcsb.cmd"""; WorkingDir: "{%USERPROFILE}"
+Name: "{commonprograms}\BigClown Sandbox"; Filename: "{win}\system32\cmd.exe"; IconFilename: "{app}\BigClown.ico"; \
+    Parameters: "/C ""{app}\script\bcsb.cmd"""; WorkingDir: "{%USERPROFILE}"
+Name: "{commondesktop}\BigClown Sandbox"; Filename: "{win}\system32\cmd.exe"; IconFilename: "{app}\BigClown.ico"; \
+    Parameters: "/C ""{app}\script\bcsb.cmd"""; WorkingDir: "{%USERPROFILE}"
 
 [Code]
 const
@@ -255,6 +256,14 @@ Filename: "msiexec.exe"; \
 ; Install USB UART FTDI Virtual COM Port Drivers
 Filename: "{tmp}\CDM21228_Setup.exe"; \
     StatusMsg: "Installing USB UART FTDI Virtual COM Port Drivers";
+; Enable Windows firewall for hbmqtt
+; https://technet.microsoft.com/en-us/library/dd734783(v=ws.10).aspx
+Filename: "netsh.exe"; Parameters: "advfirewall firewall delete rule name=hbmqtt"; \
+    StatusMsg: "Deleting Windows firewall rules for hbmqtt"; Flags: runhidden
+Filename: "netsh.exe"; Parameters: "advfirewall firewall add rule name=hbmqtt dir=in action=allow program=""{app}\tools\hbmqtt.exe"" protocol=tcp profile=any edge=deferuser"; \
+    StatusMsg: "Enabling Windows firewall for hbmqtt"; \
+    Flags: runhidden
+; netsh advfirewall firewall show rule name=hbmqtt
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}"

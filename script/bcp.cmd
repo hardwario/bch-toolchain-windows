@@ -1,0 +1,1 @@
+@"%BigClownToolchain%\tools\bcg.exe" devices
