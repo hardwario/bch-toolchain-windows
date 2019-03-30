@@ -12,7 +12,7 @@ if not defined BCT (
         title BigClown Toolchain v%BigClownToolchainVersion%
         set "BCT=%BigClownToolchain%"
         set "Path=%BigClownToolchain%\script;%BigClownToolchain%\git\cmd;%BigClownToolchain%\git\usr\bin;%BigClownToolchain%\gcc\bin;%BigClownToolchain%\make;%BigClownToolchain%\dfu;%Path%"
-        echo Welcome to BigClown Toolchain - git, ssh, make, dfu-util, arm-none-eabi-gcc, gcf, bch, bcg, bcsb
+        echo Welcome to BigClown Toolchain - git, ssh, make, dfu-util, arm-none-eabi-gcc, bcf, bch, bcg, bcsb
         echo Documentation https://doc.bigclown.com/
     ) else (
         echo BigClownToolchain environment variable not defined, reinstall Toolchain please.
