@@ -61,27 +61,27 @@ make dfu
 
 ## Components 
 32bit versions, drivers 32bit & 64bit:
-  * [BigClown Firmware Tool v0.23.2](https://github.com/bigclownlabs/bch-firmware-flasher/)
+  * [BigClown Firmware Tool v1.4.1](https://github.com/bigclownlabs/bch-firmware-flasher/)
     * `tools\bcf.exe` - Python script packed with [PyInstaller](http://www.pyinstaller.org/)
-  * [BigClown Gateway v1.15.0](https://github.com/bigclownlabs/bch-gateway)
+  * [BigClown Gateway v1.16.2](https://github.com/bigclownlabs/bch-gateway)
     *  `tools\bcg.exe` - Python script packed with [PyInstaller](http://www.pyinstaller.org/)
-  * [BigClown Control Tool v0.1.1](https://github.com/bigclownlabs/bch-control-tool)
+  * [BigClown Control Tool v0.2.0](https://github.com/bigclownlabs/bch-control-tool)
     *  `tools\bch.exe` - Python script packed with [PyInstaller](http://www.pyinstaller.org/)
   * [MQTT broker hbmqtt v0.9.5](https://github.com/beerfactory/hbmqtt)
     * `tools\hbmqtt.exe` - Python script packed with [PyInstaller](http://www.pyinstaller.org/)
   * [MQTT Wall v0.4](https://github.com/bastlirna/mqtt-wall) Simple web page showing subscribed topics from MQTT server.
     * `mqtt-wall\*` - web application
-  * [Git for Windows MinGit-busybox 2.19.1](https://github.com/git-for-windows/git/)
+  * [Git for Windows MinGit-busybox 2.23.0](https://github.com/git-for-windows/git/)
     * `git\cmd`
     * `git\etc`
     * `git\mingw32`
     * `git\usr`
-  * [GNU ARM Embedded Toolchain 7-2018-q2-update](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
+  * [GNU ARM Embedded Toolchain 8-2019-q3-update](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
     * `gcc\arm-none-eabi`
     * `gcc\bin`
     * `gcc\lib`
     * `gcc\share`
-  * [GNU MCU Eclipse Windows Build Tools v2.11-20180428, GNU make version 4.2.1](https://github.com/gnu-mcu-eclipse/windows-build-tools/)
+  * [GNU MCU Eclipse Windows Build Tools 2.12-20190422, GNU make version 4.2.1](https://github.com/gnu-mcu-eclipse/windows-build-tools/)
     * `make\make.exe` - GNU Make, Makefile dependencies by BusyBox:
       * `make\sh.exe`
       * `make\echo.exe`
@@ -107,7 +107,7 @@ make dfu
   * Required Scoop packages `scoop install`
     * `7zip` [7-Zip](http://www.7-zip.org/)
     * `git` [Git for Windows](https://github.com/git-for-windows/git/)
-    * `python36 --arch 32bit` [Python](https://www.python.org/) 3.6.7 32bit
+    * `python36 --arch 32bit` [Python](https://www.python.org/) 3.6.8 32bit
     * `innosetup-np` [Inno Setup v5.6.1](http://www.jrsoftware.org/isinfo.php)
   * [Windows 10 SDK](https://developer.microsoft.com/en-US/windows/downloads/windows-10-sdk) signtool `Windows SDK Signing Tools for Desktop Apps` ~10MB
     * [Signing Installers You Create with Inno Setup](http://revolution.screenstepslive.com/s/revolution/m/10695/l/563371-signing-installers-you-create-with-inno-setup)

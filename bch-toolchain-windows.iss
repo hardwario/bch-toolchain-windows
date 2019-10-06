@@ -1,5 +1,5 @@
 #define MyAppName "BigClown Toolchain"
-#define MyAppVersion "1.6.0"
+#define MyAppVersion "1.7.0"
 
 [Setup]
 SignTool=signtool
@@ -92,7 +92,7 @@ Source: "git\etc\*"; DestDir: "{app}\git\etc"; Flags: ignoreversion recursesubdi
 Source: "git\mingw32\*"; DestDir: "{app}\git\mingw32"; Flags: ignoreversion recursesubdirs
 Source: "git\usr\*"; DestDir: "{app}\git\usr"; Flags: ignoreversion recursesubdirs
 
-#define BuildTools "GNU MCU Eclipse\Build Tools\2.11-20180428-1604"
+#define BuildTools "GNU MCU Eclipse\Build Tools\2.12-20190422-1053"
 ; GNU make
 Source: "make\{#BuildTools}\bin\make.exe"; DestDir: "{app}\make"; Check: "not IsWin64"; Flags: ignoreversion 
 Source: "make64\{#BuildTools}\bin\make.exe"; DestDir: "{app}\make"; Check: IsWin64; Flags: ignoreversion 

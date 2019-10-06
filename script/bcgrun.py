@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from bcg.gateway import main
+from bcg import main
 
 main()
