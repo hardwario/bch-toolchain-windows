@@ -1,4 +1,4 @@
-<a href="https://www.bigclown.com/"><img src="https://bigclown.sirv.com/logo.png" width="200" alt="BigClown Logo" align="right"></a>
+<a href="https://www.bigclown.com/"><img src="https://www.hardwario.com/ci/assets/hw-logo.svg" width="200" alt="BigClown Logo" align="right"></a>
 
 # BigClown Firmware Windows Toolchain  
 For Microsoft Windows 7, 8, 10 (32bit and 64bit).
